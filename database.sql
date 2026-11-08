@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS ai_resume_analyzer;
+USE ai_resume_analyzer;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS analysis (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    filename VARCHAR(255) NOT NULL,
+    score FLOAT DEFAULT 0,
+    matched LONGTEXT,
+    missing LONGTEXT,
+    tips LONGTEXT,
+    breakdown LONGTEXT,
+    job_title VARCHAR(150) DEFAULT 'General',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}ResumeIQ | Build a stronger career{% endblock %}
+{% block content %}
+<section class="hero">
+<div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> YOUR AI CAREER COMPANION</div><h1>Make your resume<br><span>impossible to ignore.</span></h1><p>Understand your resume, match job requirements, discover skill gaps and take the next step in your career — all in one place.</p><div class="hero-actions"><a class="btn" href="{{ url_for('register') }}">Start analyzing free ↗</a><a class="text-link" href="{{ url_for('login') }}">I already have an account</a></div><div class="trust-line">✦ Resume insights &nbsp; · &nbsp; Skill matching &nbsp; · &nbsp; Career roadmap</div></div>
+<div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="floating-card score-card"><small>RESUME MATCH SCORE</small><div class="score-ring"><strong>86</strong><span>/100</span></div><b class="green-text">↑ Strong profile</b></div><div class="floating-card skill-card"><small>SKILL MATCH</small><div class="skill-row"><span>Python</span><i><b style="width:90%"></b></i></div><div class="skill-row"><span>SQL</span><i><b style="width:78%"></b></i></div><div class="skill-row"><span>Power BI</span><i><b style="width:65%"></b></i></div></div><div class="sparkle">✦</div></div>
+</section>
+<section class="feature-strip"><div><b>01</b><span>ATS score insights</span></div><div><b>02</b><span>Job description matching</span></div><div><b>03</b><span>Personal career roadmap</span></div></section>
+{% endblock %}

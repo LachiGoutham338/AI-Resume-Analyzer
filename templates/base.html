@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}ResumeIQ{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+{% if session.get('user_id') %}
+<div class="app-shell">
+<aside class="sidebar">
+<a class="brand" href="{{ url_for('dashboard') }}"><span class="brand-icon">✦</span> Resume<span class="brand-accent">IQ</span></a>
+<div class="side-label">WORKSPACE</div>
+<a href="{{ url_for('dashboard') }}" class="nav-link">▦ <span>Dashboard</span></a>
+<a href="{{ url_for('analyze') }}" class="nav-link">⌕ <span>Resume Analyzer</span></a>
+<a href="{{ url_for('improve') }}" class="nav-link">✧ <span>AI Resume Improver</span></a>
+<a href="{{ url_for('roadmap') }}" class="nav-link">◎ <span>Career Roadmap</span></a>
+<a href="{{ url_for('compare') }}" class="nav-link">⇄ <span>Compare Resumes</span></a>
+<a href="{{ url_for('history') }}" class="nav-link">◷ <span>Analysis History</span></a>
+<div class="side-bottom"><div class="user-chip"><div class="avatar">{{ session.get('username','U')[0]|upper }}</div><div><b>{{ session.get('username') }}</b><small>Personal workspace</small></div></div><a class="logout" href="{{ url_for('logout') }}">↗ Sign out</a></div>
+</aside>
+<main class="main-area">
+<header class="topbar"><div class="mobile-brand">✦ ResumeIQ</div><div class="top-note">AI-powered career workspace</div><div class="top-user">● &nbsp; {{ session.get('username') }}</div></header>
+{% else %}
+<main class="public-area">
+<header class="public-nav"><a class="brand" href="{{ url_for('index') }}"><span class="brand-icon">✦</span> Resume<span class="brand-accent">IQ</span></a><div><a href="{{ url_for('login') }}">Sign in</a><a class="btn btn-small" href="{{ url_for('register') }}">Get started</a></div></header>
+{% endif %}
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-wrap">{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+{% if session.get('user_id') %}</main></div>{% else %}</main>{% endif %}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body></html>
