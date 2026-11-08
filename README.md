@@ -2,36 +2,21 @@
 
 A Flask + MySQL student project with resume text extraction, estimated ATS matching, skill comparison, recommendations, history, comparison, PDF reports, sentence improvement helper and a basic career roadmap.
 
-## 1. Requirements
+## Requirements
 - Python 3.10 or newer
 - MySQL Server and MySQL Workbench
 - Windows Command Prompt
 
-## 2. Set up the database
+## Set up the database
 1. Open MySQL Workbench and connect to your local server.
 2. Open `database.sql`.
 3. Run the complete script.
 4. Confirm the `ai_resume_analyzer` database exists.
 
-## 3. Set your MySQL password
+## Set your MySQL password
 Open `config.py`. Replace `YOUR_MYSQL_PASSWORD` with your local MySQL root password. Do not share this password.
 
-## 4. Install Python packages
-Open Command Prompt in this project folder and run:
-
-```cmd
-py -m pip install -r requirements.txt
-```
-
-## 5. Start the project
-
-```cmd
-py app.py
-```
-
-Open `http://127.0.0.1:5000` in your browser.
-
-## 6. Test
+## Test
 1. Register a new account.
 2. Log in.
 3. Open Resume Analyzer.
